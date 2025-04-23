@@ -1,7 +1,7 @@
 MEMORY 
 {
 	sram (rwx) : ORIGIN = 0x20000000, LENGTH = 64K
-	flash (rx) : ORIGIN = 0x00000000, LENGTH =512K
+	flash (rx) : ORIGIN = 0x00000000, LENGTH = 512K
 }
 
 _sStack = ORIGIN(sram) + LENGTH(sram);

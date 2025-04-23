@@ -1,6 +1,7 @@
 CC = arm-none-eabi-gcc
 CFLAGS = -mcpu=cortex-m3 -mthumb -c -g
 LFLAGS = -mcpu=cortex-m3 -nostdlib -mthumb -Wl,-Map=main.map -T main.ld
+
 all : startup.o main.o
 	$(CC) $(LFLAGS) -o main.elf main.o startup.o 
 
@@ -12,14 +13,17 @@ main : main.c
 	
 clean:
 	rm -f *.o *.elf *.map
-	#del /Q *.o *.elf *.map
-flash: 
-	openocd -f interface/stlink.cfg -f target/stm32f0x.cfg -c "program main.elf verify reset exit"
 
 debug:
-	openocd -f interface/stlink.cfg -f target/stm32f0x.cfg
+	qemu-system-arm \
+  -M lm3s6965evb \
+  -kernel main.elf \
+  -gdb tcp::1234 \
+  -S \
+  -nographic
 
 gdb:
-	arm-none-eabi-gdb main.elf
+	gdb-multiarch main.elf -ex "target remote localhost:1234" -ex "layout src" -ex "layout regs"
+
 	
 
