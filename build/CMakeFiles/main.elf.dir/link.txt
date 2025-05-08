@@ -1,0 +1,1 @@
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g  -mcpu=cortex-m3 -nostdlib -mthumb -Wl,-Map=main.map -T /workspaces/QEMU_lm3s6965evb/main.ld CMakeFiles/main.elf.dir/startup.c.o CMakeFiles/main.elf.dir/main.c.o  -o main.elf 

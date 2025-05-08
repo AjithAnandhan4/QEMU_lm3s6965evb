@@ -41,7 +41,7 @@ monitor reset halt
 break main
 ```
 
-### Sample debug commands:
+### GDB Debug commands:
 ```bash
 info register   ----> shows the GPRs
 
@@ -69,7 +69,88 @@ layout reg
  
 layout split 
 
+info local
+
+(gdb) info frame
+
+(gdb) x/4wx $sp
+
+(gdb) x/4wx $fp
+
+
 ```
+
+---
+
+## Core Navigation & Execution
+
+| Command             | Description                                               |
+|---------------------|-----------------------------------------------------------|
+| `start`             | Run the program and break at `main()`                     |
+| `run` or `r`        | Start program from the beginning                          |
+| `continue` or `c`   | Continue execution after a breakpoint                     |
+| `step` or `s`       | Step into the next instruction or function                |
+| `next` or `n`       | Step over a function call                                 |
+| `finish`            | Run until the current function returns                    |
+| `until <line>`      | Continue until a certain line in current function         |
+| `return`            | Force return from function (can return a value)           |
+
+---
+
+## Breakpoints & Watchpoints
+
+| Command                    | Description                                               |
+|----------------------------|-----------------------------------------------------------|
+| `break <function>`         | Set a breakpoint at a function (e.g., `b main`)           |
+| `b <file>:<line>`          | Set a breakpoint at a specific line in a file             |
+| `delete`                   | Delete all breakpoints                                    |
+| `clear`                    | Clear breakpoint at current line                          |
+| `watch <var>`              | Break when a variable is written                          |
+| `rwatch <var>`             | Break when a variable is read                             |
+| `awatch <var>`             | Break when a variable is read or written                  |
+
+---
+
+## Inspecting Variables and Memory
+
+| Command                    | Description                                               |
+|----------------------------|-----------------------------------------------------------|
+| `print <var>` or `p <var>` | Print the value of a variable                             |
+| `info locals`              | Show all local variables in current function              |
+| `info args`                | Show all arguments to current function                    |
+| `x/1wx 0x20000000`         | Examine 1 word in hex at address                          |
+| `x/4xb $sp`                | View 4 bytes at stack pointer                             |
+| `x/32i $pc`                | View 32 disassembled instructions from PC                 |
+
+---
+
+## Disassembly, Registers, Layout
+
+| Command             | Description                                               |
+|---------------------|-----------------------------------------------------------|
+| `layout split`      | Split view: source + assembly + status                    |
+| `layout regs`       | Show CPU registers in UI                                  |
+| `info registers`    | Full register dump                                        |
+| `disas`             | Disassemble current function                              |
+| `tui enable`        | Enable TUI mode (text user interface)                     |
+
+---
+
+## Misc and Pro Tips
+
+| Command                      | Description                                               |
+|------------------------------|-----------------------------------------------------------|
+| `set var <x> = 42`           | Change variable value at runtime                          |
+| `frame`                      | Show current call frame                                   |
+| `backtrace` or `bt`          | Show call stack                                           |
+| `list` or `l`                | Show source code around current line                      |
+| `set pagination off`         | Prevent GDB from pausing output                           |
+| `quit` or `Ctrl+d`           | Exit GDB                                                  |
+
+---
+
+
+
 
 ## For more gui with python you can refer the below link:
  

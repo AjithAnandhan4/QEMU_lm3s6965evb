@@ -1,0 +1,9 @@
+{
+    "name": "My Cortex Dev",
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "extensions": [
+      "marus25.cortex-debug",
+      "ms-vscode.cpptools"
+    ]
+  }
+  

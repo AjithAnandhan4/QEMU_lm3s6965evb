@@ -1,0 +1,6 @@
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/edit_cache.dir
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/gdb.dir
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/debug.dir
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/clean_all.dir
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/rebuild_cache.dir
+/workspaces/QEMU_lm3s6965evb/build/CMakeFiles/main.elf.dir
